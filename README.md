@@ -1,3 +1,3 @@
-# twitch-dono-clock Progress Bar for Slime2 Desktop
+# Goal progress bar in Slime2 Desktop
 
-Progress bar display
+Slime2 Desktop overlay for the twitch-dono-clock https://github.com/Latent-Logic/twitch-dono-clock
