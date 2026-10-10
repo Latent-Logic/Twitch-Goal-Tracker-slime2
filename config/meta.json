@@ -1,10 +1,10 @@
 {
-	"id": "latent:progress-bar",
-	"name": "Donothon Progress Bar",
+	"id": "latent-lz:twitch-goal-tracker",
+	"name": "Twitch Goal Tracker",
 	"creator": "LatentLogic & lunazera",
-	"version": "1.0.1",
-	"website": "https://slime2.stream/",
-	"support": "https://slime2.forumotion.com/f7-support",
+	"version": "0.1",
+	"website": "https://github.com/Lunazera/Twitch-Goal-Tracker",
+	"support": "https://github.com/Latent-Logic/twitch-dono-clock",
 	"type": [
 		"overlay"
 	],
