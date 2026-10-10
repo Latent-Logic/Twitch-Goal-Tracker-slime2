@@ -1,0 +1,25 @@
+{
+	"id": "latent:progress-bar",
+	"name": "Donothon Progress Bar",
+	"creator": "LatentLogic & lunazera",
+	"version": "1.0.1",
+	"website": "https://slime2.stream/",
+	"support": "https://slime2.forumotion.com/f7-support",
+	"type": [
+		"overlay"
+	],
+	"import": {
+		"js": [
+			"script.js"
+		],
+		"css": [
+			"styles.css"
+		]
+	},
+	"accounts": [
+		{
+			"type": "read",
+			"service": "twitch"
+		}
+	]
+}
