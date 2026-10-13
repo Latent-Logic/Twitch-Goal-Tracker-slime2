@@ -120,6 +120,25 @@ function widgetValuesListener(event) {
 	].forEach(([cssVarName, value]) => {
 		setCustomCSS(cssVarName, value);
 	});
+
+	// Element Display Settings
+	if (Widget.values.get('title-toggle')) {
+		setCustomCSS('text-title-display', 'block');
+	} else {
+		setCustomCSS('text-title-display', 'none');
+	}
+	if (Widget.values.get('text-above-toggle')) {
+		setCustomCSS('text-above-display', 'block');
+	} else {
+		setCustomCSS('text-above-display', 'none');
+	}
+	if (Widget.values.get('text-below-toggle')) {
+		setCustomCSS('text-below-display', 'block');
+	} else {
+		setCustomCSS('text-below-display', 'none');
+	}
+
+
 }
 
 /* Widget account load listener (this runs once) *******************************************************************/

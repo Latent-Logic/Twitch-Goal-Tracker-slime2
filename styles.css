@@ -13,6 +13,10 @@
 	--bar-width: var(--custom-bar-width, 25px);
 	--bar-height: var(--custom-bar-height, 100px);
 
+    --text-title-display: var(--custom-text-title-display, none);
+    --text-above-display: var(--custom-text-above-display, none);
+    --text-below-display: var(--custom-text-below-display, none);
+
 	font-family:
 		var(--custom-font-name), 'Inter', Nunito, Helvetica, Arial, sans-serif;
 
@@ -73,4 +77,14 @@
     font-size: var(--font-size);   
     white-space: nowrap;
     pointer-events: none;
+}
+
+#text-title {
+    display: var(--text-title-display);
+}
+#text-above {
+    display: var(--text-above-display);
+}
+#text-below {
+    display: var(--text-below-display);
 }

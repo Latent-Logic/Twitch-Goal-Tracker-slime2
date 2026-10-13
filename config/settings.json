@@ -52,7 +52,7 @@
 						"type": "dropdown-input",
 						"label": "Progress Bar Type",
 						"defaultValue": "bar-goal",
-						"description": "Change the type of progress bar",
+						"description": "Change the type of progress bar. Either setting will reveal it's own sub-settings",
 						"options": [
 							{
 								"label": "Donation Goal",
