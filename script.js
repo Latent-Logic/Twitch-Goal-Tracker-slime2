@@ -100,6 +100,10 @@ function widgetValuesListener(event) {
 		['text-color', Widget.values.get('text-color') ?? 'red'],
 		['font-size', `${Widget.values.get('font-size') ?? 14}px`],
 		['font-weight', Widget.values.get('font-weight') ?? 'normal'],
+		['text-align', Widget.values.get('text-align') ?? 'center'],
+		['text-left', `${Widget.values.get('text-adjust-x') ?? 0}px`],
+		['text-top', `${Widget.values.get('text-adjust-y') ?? 0}px`],
+		['text-rotate', `${Widget.values.get('text-rotate') ?? 0}deg`],
 		['text-background-color', Widget.values.get('text-background-color') ?? 'white'],
 		['text-background-border-radius', `${Widget.values.get('text-background-border-radius') ?? 5}px`],
 	].forEach(([cssVarName, value]) => {

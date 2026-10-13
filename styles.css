@@ -2,8 +2,13 @@
 	--font-size: var(--custom-font-size, 14px);
 	--text-color: var(--custom-text-color, white);
 	--font-weight: var(--custom-font-weight, normal);
+    --text-align: var(--custom-text-align, center);
+    --text-left: var(--custom-text-left, 0px);
+    --text-top: var(--custom-text-top, 0px);
 	--text-background-color: var(--custom-text-background-color, rgba(255,255,255,0));
 	--text-background-border-radius: var(--custom-text-background-border-radius, 5px);
+
+    --text-rotation: var(--custom-text-rotate, 0deg);
 
 	--border-radius: var(--custom-border-radius, 5px);
 	--bar-color: var(--custom-bar-color, white);
@@ -50,7 +55,7 @@
     border: var(--bar-border-size) solid var(--bar-border-color);
     position: relative; 
     display: flex;
-    justify-content: center;
+    justify-content: var(--text-align);
     align-items: center;
 }
 
@@ -67,8 +72,7 @@
 
 #stats {
     position: relative; 
-    z-index: 2; 
-    
+    z-index: 2;
     background-color: var(--text-background-color);
     color: var(--text-color);
     padding: 2px 12px;
@@ -77,6 +81,9 @@
     font-size: var(--font-size);   
     white-space: nowrap;
     pointer-events: none;
+    left: var(--text-left);
+    top: var(--text-top);
+    transform: rotate(var(--text-rotation));
 }
 
 #text-title {

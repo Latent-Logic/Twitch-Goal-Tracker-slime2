@@ -206,18 +206,63 @@
 						"halfSpan": true,
 						"defaultValue": "#fff"
 					},
+					"text-align": {
+						"type": "dropdown-input",
+						"label": "Alignment",
+						"defaultValue": "center",
+						"options": [
+							{
+								"label": "Center",
+								"value": "center"
+							},
+							{
+								"label": "Left",
+								"value": "left"
+							},
+							{
+								"label": "Right",
+								"value": "right"
+							}
+						]
+					},
 					"text-background-color": {
 						"type": "color-input",
 						"label": "Text Background Color",
+						"halfSpan": true,
 						"defaultValue": "#fff0"
 					},
 					"text-background-border-radius": {
 						"type": "slider-input",
 						"label": "Text Background Radius",
+						"halfSpan": true,
 						"defaultValue": 0,
 						"min": 0,
 						"max": 50,
 						"step": 1
+					},
+					"text-adjust-x": {
+						"type": "slider-input",
+						"label": "Adjust Horizontal Position",
+						"defaultValue": 0,
+						"min": -300,
+						"max": 300,
+						"step": 1
+					},
+					"text-adjust-y": {
+						"type": "slider-input",
+						"label": "Adjust Vertical Position",
+						"defaultValue": 0,
+						"min": -100,
+						"max": 100,
+						"step": 1
+					},
+					"text-rotate": {
+						"type": "slider-input",
+						"label": "Text Rotation",
+						"defaultValue": 0,
+						"min": -90,
+						"max": 90,
+						"step": 0.1
 					}
 				}
 			},
@@ -273,40 +318,66 @@
 		}
 	},
 	"text-values": {
-		"label": "Text wip",
+		"label": "Additional Text",
 		"settings": {
-			"title-toggle": {
-				"type": "toggle-input",
-				"label": "Show Title?",
-				"halfSpan": true,
-				"defaultValue": false
+			"title-text-section": {
+				"type": "section",
+				"label": "Title",
+				"settings": {
+					"title-toggle": {
+						"type": "toggle-input",
+						"label": "Show Title?",
+						"halfSpan": true,
+						"defaultValue": false
+					},
+					"bar-text-title": {
+						"type": "text-input",
+						"label": "Title Text",
+						"halfSpan": true
+					}
+				}
 			},
-			"bar-text-title": {
-				"type": "text-input",
-				"label": "Bar Title Text",
-				"halfSpan": true
+			"text-above-section": {
+				"type": "section",
+				"label": "Text Above",
+				"settings": {
+					"text-above-desc": {
+						"type": "text-display",
+						"label": "When set to Milestone Bar, the previous milestone is appended to the end of this text."
+					},
+					"text-above-toggle": {
+						"type": "toggle-input",
+						"label": "Show Text Above?",
+						"halfSpan": true,
+						"defaultValue": false
+					},
+					"text-above-bar": {
+						"type": "text-input",
+						"label": "Text above bar",
+						"halfSpan": true
+					}
+				}
 			},
-			"text-above-toggle": {
-				"type": "toggle-input",
-				"label": "Show Text Above?",
-				"halfSpan": true,
-				"defaultValue": false
-			},
-			"text-above-bar": {
-				"type": "text-input",
-				"label": "Text above bar",
-				"halfSpan": true
-			},
-			"text-below-toggle": {
-				"type": "toggle-input",
-				"label": "Show Text Below?",
-				"halfSpan": true,
-				"defaultValue": false
-			},
-			"text-below-bar": {
-				"type": "text-input",
-				"label": "Text below bar",
-				"halfSpan": true
+			"text-below-section": {
+				"type": "section",
+				"label": "Text Below",
+				"settings": {
+					"text-below-desc": {
+						"type": "text-display",
+						"label": "When set to Milestone, the next milestone is appended to the end of this text"
+					},
+					"text-below-toggle": {
+						"type": "toggle-input",
+						"label": "Show Text Below?",
+						"halfSpan": true,
+						"defaultValue": false
+					},
+					"text-below-bar": {
+						"type": "text-input",
+						"label": "Text below bar",
+						"halfSpan": true
+					}
+				}
 			}
 		}
 	}
