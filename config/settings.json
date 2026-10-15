@@ -335,10 +335,10 @@
 							]
 						},
 						"halfSpan": true,
-						"defaultValue": 0,
+						"defaultValue": 5,
 						"min": 0,
 						"max": 50,
-						"step": 1
+						"step": 0.5
 					},
 					"text-shadow-offset-x": {
 						"type": "slider-input",
@@ -349,10 +349,10 @@
 							]
 						},
 						"halfSpan": true,
-						"defaultValue": 0,
+						"defaultValue": 2,
 						"min": -25,
 						"max": 25,
-						"step": 1
+						"step": 0.5
 					},
 					"text-shadow-offset-y": {
 						"type": "slider-input",
@@ -363,10 +363,10 @@
 							]
 						},
 						"halfSpan": true,
-						"defaultValue": 0,
+						"defaultValue": 2,
 						"min": -25,
 						"max": 25,
-						"step": 1
+						"step": 0.5
 					}
 				}
 			},
