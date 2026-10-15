@@ -75,7 +75,7 @@ function widgetValuesListener(event) {
 
 	/// Load in data into 'Goal'
 	updateGoal();
-	
+
 	// Update Text and the Progress Bar
 	updateProgressBar(amount);
 	writeText();
@@ -137,7 +137,7 @@ function widgetValuesListener(event) {
 				setCustomCSS(cssVarName, value);
 			});
 		}
-		
+
 		// Shadow settings
 		[
 			[prefix + 'text-shadow-blur', `${Widget.values.get(prefix + 'text-shadow-blur') ?? 0}px`],
@@ -367,7 +367,7 @@ var wsOnClose = function(e) {
 var wsOnError = function(err) {
 	console.error("WebSocket error observed:", err);
 };
- 
+
 
 /* Helpers *******************************************************************/
 
@@ -431,7 +431,7 @@ function updateProgressBar(amountString) {
 	progressBar.style.width = `${calculatePercentage(currentAmount, GOAL, offset)}%`;
 
 	// Change text
-	currentText.innerText = amountString; 
+	currentText.innerText = amountString;
 }
 
 
