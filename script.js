@@ -518,16 +518,16 @@ function updateMilestones(amount) {
 function writeText() {
 	switch(Widget.values.get('bar-type') ?? '' ) {
 		case 'bar-goal':
-			textAbove.textContent =  Widget.values.get('text-above-bar');
-			textBelow.textContent =  Widget.values.get('text-below-bar');
+			textAbove.textContent =  Widget.values.get('text-above-bar') ?? '';
+			textBelow.textContent =  Widget.values.get('text-below-bar') ?? '';
 			break;
 		case 'bar-milestone':
 			if (MilestoneIndex === 0) {
 				textAbove.textContent = "";
-				textBelow.textContent =  Widget.values.get('text-below-bar') + getMilestoneText(MilestoneIndex);
+				textBelow.textContent =  Widget.values.get('text-below-bar') ?? '' + getMilestoneText(MilestoneIndex);
 			} else {
-				textAbove.textContent =  Widget.values.get('text-above-bar')  + getMilestoneText(MilestoneIndex - 1);
-				textBelow.textContent =  Widget.values.get('text-below-bar')  + getMilestoneText(MilestoneIndex);
+				textAbove.textContent =  Widget.values.get('text-above-bar') ?? '' + getMilestoneText(MilestoneIndex - 1);
+				textBelow.textContent =  Widget.values.get('text-below-bar') ?? '' + getMilestoneText(MilestoneIndex);
 			}
 			break;
 	}
