@@ -75,7 +75,7 @@ function widgetValuesListener(event) {
 
 	/// Load in data into 'Goal'
 	updateGoal();
-	
+
 	// Update Text and the Progress Bar
 	updateProgressBar(amount);
 	writeText();
@@ -137,7 +137,7 @@ function widgetValuesListener(event) {
 				setCustomCSS(cssVarName, value);
 			});
 		}
-		
+
 		// Shadow settings
 		[
 			[prefix + 'text-shadow-blur', `${Widget.values.get(prefix + 'text-shadow-blur') ?? 0}px`],
@@ -382,7 +382,7 @@ var wsOnClose = function(e) {
 var wsOnError = function(err) {
 	console.error("WebSocket error observed:", err);
 };
- 
+
 
 /* Helpers *******************************************************************/
 
@@ -446,7 +446,7 @@ function updateProgressBar(amountString) {
 	progressBar.style.width = `${calculatePercentage(currentAmount, GOAL, offset)}%`;
 
 	// Change text
-	currentText.innerText = amountString; 
+	currentText.innerText = amountString;
 }
 
 
@@ -533,16 +533,16 @@ function updateMilestones(amount) {
 function writeText() {
 	switch(Widget.values.get('bar-type') ?? '' ) {
 		case 'bar-goal':
-			textAbove.textContent =  Widget.values.get('text-above-bar');
-			textBelow.textContent =  Widget.values.get('text-below-bar');
+			textAbove.textContent =  Widget.values.get('text-above-bar') ?? '';
+			textBelow.textContent =  Widget.values.get('text-below-bar') ?? '';
 			break;
 		case 'bar-milestone':
 			if (MilestoneIndex === 0) {
 				textAbove.textContent = "";
-				textBelow.textContent =  Widget.values.get('text-below-bar') + getMilestoneText(MilestoneIndex);
+				textBelow.textContent =  Widget.values.get('text-below-bar') ?? '' + getMilestoneText(MilestoneIndex);
 			} else {
-				textAbove.textContent =  Widget.values.get('text-above-bar')  + getMilestoneText(MilestoneIndex - 1);
-				textBelow.textContent =  Widget.values.get('text-below-bar')  + getMilestoneText(MilestoneIndex);
+				textAbove.textContent =  Widget.values.get('text-above-bar') ?? '' + getMilestoneText(MilestoneIndex - 1);
+				textBelow.textContent =  Widget.values.get('text-below-bar') ?? '' + getMilestoneText(MilestoneIndex);
 			}
 			break;
 	}
