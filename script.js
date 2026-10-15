@@ -32,6 +32,15 @@ let ParsedMilestoneList;
 let MilestoneIndex = 0;
 
 
+const progressBar = document.getElementById('progress-bar');
+const currentText = document.getElementById('current-amount');
+const goalText = document.getElementById('goal-amount');
+
+const textTitle = document.getElementById("text-title");
+const textAbove = document.getElementById("text-above");
+const textBelow = document.getElementById("text-below");
+
+
 /* Slime2 Event Listeners *****************************************************************/
 
 addEventListener('slime2:widget-values', widgetValuesListener);
@@ -92,55 +101,89 @@ function widgetValuesListener(event) {
 		widgetElement.classList.toggle(className, force);
 	}
 
-	// text settings
-	[
-		['font-name', `"${Widget.values.get('font-name') ?? 'Inter'}"`],
-		['text-color', Widget.values.get('text-color') ?? 'red'],
-		['font-size', `${Widget.values.get('font-size') ?? 14}px`],
-		['font-weight', Widget.values.get('font-weight') ?? 'normal'],
-		['text-align', Widget.values.get('text-align') ?? 'center'],
-		['text-background-color', Widget.values.get('text-background-color') ?? 'white'],
-		['text-background-border-radius', `${Widget.values.get('text-background-border-radius') ?? 5}px`],
-	].forEach(([cssVarName, value]) => {
-		setCustomCSS(cssVarName, value);
-	});
 
-
-	if (Widget.values.get('text-adjust-toggle')) {
+	function loadWidgetTextSettings(prefix = '') {
+		// appearance settings
 		[
-			['text-left', `${Widget.values.get('text-adjust-x') ?? 0}px`],
-			['text-top', `${Widget.values.get('text-adjust-y') ?? 0}px`],
-			['text-rotate', `${Widget.values.get('text-rotate') ?? 0}deg`],
+			[prefix + 'font-name', `"${Widget.values.get(prefix + 'font-name') ?? 'Inter'}"`],
+			[prefix + 'font-weight', Widget.values.get(prefix + 'font-weight') ?? 'normal'],
+			[prefix + 'font-size', `${Widget.values.get(prefix + 'font-size') ?? 14}px`],
+			[prefix + 'text-color', Widget.values.get(prefix + 'text-color') ?? 'red'],
+			[prefix + 'text-align', Widget.values.get(prefix + 'text-align') ?? 'center'],
+			[prefix + 'text-outline', `${Widget.values.get(prefix + 'text-outline') ?? 0}px`],
+			[prefix + 'text-outline-color', Widget.values.get(prefix + 'text-outline-color') ?? 'black'],
+			[prefix + 'text-background-color', Widget.values.get(prefix + 'text-background-color') ?? 'white'],
+			[prefix + 'text-background-border-radius', `${Widget.values.get(prefix + 'text-background-border-radius') ?? 5}px`],
 		].forEach(([cssVarName, value]) => {
 			setCustomCSS(cssVarName, value);
 		});
-	} else {
+
+		// Position settings
+
+		if (Widget.values.get(prefix + 'text-adjust-toggle')) {
+			[
+				[prefix + 'text-left', `${Widget.values.get(prefix + 'text-adjust-x') ?? 0}px`],
+				[prefix + 'text-top', `${Widget.values.get(prefix + 'text-adjust-y') ?? 0}px`],
+				[prefix + 'text-rotate', `${Widget.values.get(prefix + 'text-rotate') ?? 0}deg`],
+			].forEach(([cssVarName, value]) => {
+				setCustomCSS(cssVarName, value);
+			});
+		} else {
+			[
+				[prefix + 'text-left', `0px`],
+				[prefix + 'text-top', `0px`],
+				[prefix + 'text-rotate', `0deg`],
+			].forEach(([cssVarName, value]) => {
+				setCustomCSS(cssVarName, value);
+			});
+		}
+		
+		// Shadow settings
 		[
-			['text-left', `0px`],
-			['text-top', `0px`],
-			['text-rotate', `0deg`],
+			[prefix + 'text-shadow-blur', `${Widget.values.get(prefix + 'text-shadow-blur') ?? 0}px`],
+			[prefix + 'text-shadow-offset-x', `${Widget.values.get(prefix + 'text-shadow-offset-x') ?? 0}px`],
+			[prefix + 'text-shadow-offset-y', `${Widget.values.get(prefix + 'text-shadow-offset-y') ?? 0}px`],
 		].forEach(([cssVarName, value]) => {
 			setCustomCSS(cssVarName, value);
 		});
+
+		if (Widget.values.get(prefix + 'text-shadow-toggle')) {
+			setCustomCSS(prefix + 'text-shadow-color', Widget.values.get(prefix + 'text-shadow-color') ?? 'black');
+		} else {
+			setCustomCSS(prefix + 'text-shadow-color', 'none');
+		}
 	}
-	
+
+	loadWidgetTextSettings();
+	loadWidgetTextSettings('title-');
+	loadWidgetTextSettings('above-');
+	loadWidgetTextSettings('below-');
 
 
-	// shadow settings
-	[
-		['text-shadow-blur', `${Widget.values.get('text-shadow-blur') ?? 0}px`],
-		['text-shadow-offset-x', `${Widget.values.get('text-shadow-offset-x') ?? 0}px`],
-		['text-shadow-offset-y', `${Widget.values.get('text-shadow-offset-y') ?? 0}px`],
-	].forEach(([cssVarName, value]) => {
-		setCustomCSS(cssVarName, value);
-	});
 
-	if (Widget.values.get('text-shadow-toggle')) {
-		setCustomCSS('text-shadow-color', Widget.values.get('text-shadow-color') ?? 'black');
+
+
+	// Title Text Separate settings
+	if (Widget.values.get('title-adjust-toggle')) {
+		textTitle.classList.toggle('text-title-settings', true);
 	} else {
-		setCustomCSS('text-shadow-color', 'none');
+		textTitle.classList.toggle('text-title-settings', false);
 	}
-	
+
+	// Above Text Separate settings
+	if (Widget.values.get('above-adjust-toggle')) {
+		textAbove.classList.toggle('text-above-settings', true);
+	} else {
+		textAbove.classList.toggle('text-above-settings', false);
+	}
+
+	// Below Text Separate settings
+	if (Widget.values.get('below-adjust-toggle')) {
+		textBelow.classList.toggle('text-below-settings', true);
+	} else {
+		textBelow.classList.toggle('text-below-settings', false);
+	}
+
 
 	// bar settings
 	[
@@ -328,13 +371,7 @@ var wsOnError = function(err) {
 
 /* Helpers *******************************************************************/
 
-const progressBar = document.getElementById('progress-bar');
-const currentText = document.getElementById('current-amount');
-const goalText = document.getElementById('goal-amount');
 
-const textTitle = document.getElementById("text-title");
-const textAbove = document.getElementById("text-above");
-const textBelow = document.getElementById("text-below");
 
 
 /* Progress Bar *******************************************************************/

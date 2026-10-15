@@ -8,6 +8,9 @@
 	--text-background-color: var(--custom-text-background-color, rgba(255,255,255,0));
 	--text-background-border-radius: var(--custom-text-background-border-radius, 5px);
 
+    --text-outline: var(--custom-text-outline, 0px);
+    --text-outline-color: var(--custom-text-outline-color, black);
+
     --text-shadow-toggle: var(--custom-text-shadow-toggle, '');
     --text-shadow-blur: var(--custom-text-shadow-blur, 0px);
     --text-shadow-offset-x: var(--custom-text-shadow-offset-x, 0px);
@@ -27,6 +30,85 @@
     --text-title-display: var(--custom-text-title-display, none);
     --text-above-display: var(--custom-text-above-display, none);
     --text-below-display: var(--custom-text-below-display, none);
+
+
+    --title-font-size: var(--custom-title-font-size, 14px);
+	--title-text-color: var(--custom-title-text-color, white);
+	--title-font-weight: var(--custom-title-font-weight, normal);
+    --title-text-align: var(--custom-title-text-align, center);
+    
+	--title-text-background-color: var(--custom-title-text-background-color, rgba(255,255,255,0));
+	--title-text-background-border-radius: var(--custom-title-text-background-border-radius, 5px);
+
+    --title-text-outline: var(--custom-title-text-outline, 0px);
+    --title-text-outline-color: var(--custom-title-text-outline-color, black);
+
+    --title-text-shadow-toggle: var(--custom-title-text-shadow-toggle, '');
+    --title-text-shadow-blur: var(--custom-title-text-shadow-blur, 0px);
+    --title-text-shadow-offset-x: var(--custom-title-text-shadow-offset-x, 0px);
+    --title-text-shadow-offset-y: var(--custom-title-text-shadow-offset-y, 0px);
+    --title-text-shadow-color: var(--custom-title-text-shadow-color, black);
+
+    --title-text-left: var(--custom-title-text-left, 0px);
+    --title-text-top: var(--custom-title-text-top, 0px);
+    --title-text-rotation: var(--custom-title-text-rotate, 0deg);
+
+
+
+
+
+
+    --above-font-size: var(--custom-above-font-size, 14px);
+	--above-text-color: var(--custom-above-text-color, white);
+	--above-font-weight: var(--custom-above-font-weight, normal);
+    --above-text-align: var(--custom-above-text-align, center);
+
+    --above-text-outline: var(--custom-above-text-outline, 0px);
+    --above-text-outline-color: var(--custom-above-text-outline-color, black);
+    
+	--above-text-background-color: var(--custom-above-text-background-color, rgba(255,255,255,0));
+	--above-text-background-border-radius: var(--custom-above-text-background-border-radius, 5px);
+
+    --above-text-shadow-toggle: var(--custom-above-text-shadow-toggle, '');
+    --above-text-shadow-blur: var(--custom-above-text-shadow-blur, 0px);
+    --above-text-shadow-offset-x: var(--custom-above-text-shadow-offset-x, 0px);
+    --above-text-shadow-offset-y: var(--custom-above-text-shadow-offset-y, 0px);
+    --above-text-shadow-color: var(--custom-above-text-shadow-color, black);
+
+    --above-text-left: var(--custom-above-text-left, 0px);
+    --above-text-top: var(--custom-above-text-top, 0px);
+    --above-text-rotation: var(--custom-above-text-rotate, 0deg);
+
+    
+
+
+    --below-font-size: var(--custom-below-font-size, 14px);
+	--below-text-color: var(--custom-below-text-color, white);
+	--below-font-weight: var(--custom-below-font-weight, normal);
+    --below-text-align: var(--custom-below-text-align, center);
+
+    --below-text-outline: var(--custom-below-text-outline, 0px);
+    --below-text-outline-color: var(--custom-below-text-outline-color, black);
+    
+	--below-text-background-color: var(--custom-below-text-background-color, rgba(255,255,255,0));
+	--below-text-background-border-radius: var(--custom-below-text-background-border-radius, 5px);
+
+    --below-text-shadow-toggle: var(--custom-below-text-shadow-toggle, '');
+    --below-text-shadow-blur: var(--custom-below-text-shadow-blur, 0px);
+    --below-text-shadow-offset-x: var(--custom-below-text-shadow-offset-x, 0px);
+    --below-text-shadow-offset-y: var(--custom-below-text-shadow-offset-y, 0px);
+    --below-text-shadow-color: var(--custom-below-text-shadow-color, black);
+
+    --below-text-left: var(--custom-below-text-left, 0px);
+    --below-text-top: var(--custom-below-text-top, 0px);
+    --below-text-rotation: var(--custom-below-text-rotate, 0deg);
+
+
+
+
+
+
+
 
 	font-family:
 		var(--custom-font-name), 'Inter', Nunito, Helvetica, Arial, sans-serif;
@@ -52,6 +134,7 @@
     pointer-events: none;
     text-align: var(--text-align);
     text-shadow: var(--text-shadow-offset-x) var(--text-shadow-offset-y) var(--text-shadow-blur) var(--text-shadow-color);
+    -webkit-text-stroke: var(--text-outline) var(--text-outline-color);
 }
 
 .progress-container {
@@ -93,11 +176,57 @@
     top: var(--text-top);
     transform: rotate(var(--text-rotation));
     text-shadow: var(--text-shadow-offset-x) var(--text-shadow-offset-y) var(--text-shadow-blur) var(--text-shadow-color);
+    -webkit-text-stroke: var(--text-outline) var(--text-outline-color);
 }
 
 #text-title {
     display: var(--text-title-display);
 }
+
+.text-title-settings {
+    position: relative; 
+    z-index: 3;
+    background-color: var(--title-text-background-color);
+    color: var(--title-text-color);
+    border-radius: var(--title-text-background-border-radius);
+    font-weight: var(--title-font-weight);
+    font-size: var(--title-font-size);   
+    left: var(--title-text-left);
+    top: var(--title-text-top);
+    transform: rotate(var(--title-text-rotation));
+    text-shadow: var(--title-text-shadow-offset-x) var(--title-text-shadow-offset-y) var(--title-text-shadow-blur) var(--title-text-shadow-color);
+    -webkit-text-stroke: var(--title-text-outline) var(--title-text-outline-color);
+}
+.text-above-settings {
+    position: relative; 
+    z-index: 4;
+    background-color: var(--above-text-background-color);
+    color: var(--above-text-color);
+    border-radius: var(--above-text-background-border-radius);
+    font-weight: var(--above-font-weight);
+    font-size: var(--above-font-size);   
+    left: var(--above-text-left);
+    top: var(--above-text-top);
+    transform: rotate(var(--above-text-rotation));
+    text-shadow: var(--above-text-shadow-offset-x) var(--above-text-shadow-offset-y) var(--above-text-shadow-blur) var(--above-text-shadow-color);
+    -webkit-text-stroke: var(--above-text-outline) var(--above-text-outline-color);
+}
+.text-below-settings {
+    position: relative; 
+    z-index: 5;
+    background-color: var(--below-text-background-color);
+    color: var(--below-text-color);
+    border-radius: var(--below-text-background-border-radius);
+    font-weight: var(--below-font-weight);
+    font-size: var(--below-font-size);   
+    left: var(--below-text-left);
+    top: var(--below-text-top);
+    transform: rotate(var(--below-text-rotation));
+    text-shadow: var(--below-text-shadow-offset-x) var(--below-text-shadow-offset-y) var(--below-text-shadow-blur) var(--below-text-shadow-color);
+    -webkit-text-stroke: var(--below-text-outline) var(--below-text-outline-color);
+}
+
+
 #text-above {
     display: var(--text-above-display);
 }

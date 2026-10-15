@@ -288,6 +288,21 @@
 							}
 						]
 					},
+					"text-outline-color": {
+						"type": "color-input",
+						"halfSpan": true,
+						"defaultValue": "#000",
+						"label": "Outline Color"
+					},
+					"text-outline": {
+						"type": "slider-input",
+						"min": 0,
+						"max": 10,
+						"step": 0.5,
+						"halfSpan": true,
+						"defaultValue": 0,
+						"label": "Outline"
+					},
 					"text-background-color": {
 						"type": "color-input",
 						"label": "Text Background Color",
@@ -427,18 +442,14 @@
 	"text-values": {
 		"label": "Additional Text Settings",
 		"settings": {
-			"title-text-heading": {
-				"type": "heading",
-				"label": "Title Text"
-			},
-			"title-text-comment": {
-				"type": "text-display",
-				"label": "This is text that would be placed above the bar"
-			},
 			"title-text-section": {
 				"type": "section",
 				"label": "Title Text",
 				"settings": {
+					"title-text-comment": {
+						"type": "text-display",
+						"label": "This is text that would be placed above the bar"
+					},
 					"title-toggle": {
 						"type": "toggle-input",
 						"label": "Show Title?",
@@ -449,8 +460,8 @@
 						"type": "toggle-input",
 						"label": "Adjust Title Text Separately?",
 						"condition": {},
-						"defaultValue": false,
-						"halfSpan": true
+						"halfSpan": true,
+						"defaultValue": false
 					},
 					"bar-text-title": {
 						"type": "text-input",
@@ -735,53 +746,611 @@
 					}
 				}
 			},
-			"text-above-bar-heading": {
-				"type": "heading",
-				"label": "Text Above Bar"
-			},
-			"text-above-desc": {
-				"type": "text-display",
-				"label": "When set to Milestone Bar, the previous milestone text is appended to the end of this text."
-			},
 			"text-above-section": {
 				"type": "section",
 				"label": "Text Above",
 				"settings": {
+					"text-above-desc": {
+						"type": "text-display",
+						"label": "When set to Milestone, the next milestone text is appended to the end of this text"
+					},
 					"text-above-toggle": {
 						"type": "toggle-input",
 						"label": "Show Text Above?",
 						"halfSpan": true,
 						"defaultValue": false
 					},
+					"above-adjust-toggle": {
+						"type": "toggle-input",
+						"label": "Adjust Above Text Separately?",
+						"condition": {},
+						"halfSpan": true,
+						"defaultValue": false
+					},
 					"text-above-bar": {
 						"type": "text-input",
 						"label": "Text above bar",
-						"halfSpan": true
+						"halfSpan": false
+					},
+					"above-text-appearance-heading": {
+						"type": "heading",
+						"label": "Above Text Apperance",
+						"condition": {
+							"above-adjust-toggle": [
+								true
+							]
+						}
+					},
+					"above-font-name": {
+						"type": "font-input",
+						"label": "Font",
+						"condition": {
+							"above-adjust-toggle": [
+								true
+							]
+						},
+						"halfSpan": true,
+						"defaultValue": "Inter",
+						"placeholder": "Font name"
+					},
+					"above-font-weight": {
+						"type": "dropdown-input",
+						"label": "Font Weight",
+						"condition": {
+							"above-adjust-toggle": [
+								true
+							]
+						},
+						"halfSpan": true,
+						"defaultValue": 400,
+						"options": [
+							{
+								"label": "Thin",
+								"value": 100
+							},
+							{
+								"label": "Extra-Light",
+								"value": 200
+							},
+							{
+								"label": "Light",
+								"value": 300
+							},
+							{
+								"label": "Normal",
+								"value": 400
+							},
+							{
+								"label": "Medium",
+								"value": 500
+							},
+							{
+								"label": "Semi-Bold",
+								"value": 600
+							},
+							{
+								"label": "Bold",
+								"value": 700
+							},
+							{
+								"label": "Extra-Bold",
+								"value": 800
+							},
+							{
+								"label": "Heavy",
+								"value": 900
+							}
+						]
+					},
+					"above-font-size": {
+						"type": "slider-input",
+						"label": "Font Size (px)",
+						"condition": {
+							"above-adjust-toggle": [
+								true
+							]
+						},
+						"defaultValue": 14,
+						"min": 1,
+						"max": 72,
+						"step": 1
+					},
+					"above-text-color": {
+						"type": "color-input",
+						"label": "Font Color",
+						"condition": {
+							"above-adjust-toggle": [
+								true
+							]
+						},
+						"halfSpan": true,
+						"defaultValue": "#fff"
+					},
+					"above-text-align": {
+						"type": "dropdown-input",
+						"label": "Alignment",
+						"condition": {
+							"above-adjust-toggle": [
+								true
+							]
+						},
+						"halfSpan": true,
+						"defaultValue": "center",
+						"options": [
+							{
+								"label": "Center",
+								"value": "center"
+							},
+							{
+								"label": "Left",
+								"value": "left"
+							},
+							{
+								"label": "Right",
+								"value": "right"
+							}
+						]
+					},
+					"above-text-background-color": {
+						"type": "color-input",
+						"label": "Text Background Color",
+						"condition": {
+							"above-adjust-toggle": [
+								true
+							]
+						},
+						"halfSpan": true,
+						"defaultValue": "#fff0"
+					},
+					"above-text-background-border-radius": {
+						"type": "slider-input",
+						"label": "Text Background Radius",
+						"condition": {
+							"above-adjust-toggle": [
+								true
+							]
+						},
+						"halfSpan": true,
+						"defaultValue": 0,
+						"min": 0,
+						"max": 50,
+						"step": 1
+					},
+					"above-text-shadow-heading": {
+						"type": "heading",
+						"label": "Above Text Shadow",
+						"condition": {
+							"above-adjust-toggle": [
+								true
+							]
+						}
+					},
+					"above-text-shadow-toggle": {
+						"type": "toggle-input",
+						"label": "Use Shadow?",
+						"condition": {
+							"above-adjust-toggle": [
+								true
+							]
+						},
+						"defaultValue": true
+					},
+					"above-text-shadow-color": {
+						"type": "color-input",
+						"label": "Shadow Color",
+						"condition": {
+							"above-adjust-toggle": [
+								true
+							]
+						},
+						"halfSpan": true,
+						"defaultValue": "#000"
+					},
+					"above-text-shadow-blur": {
+						"type": "slider-input",
+						"label": "Shadow Blur (px)",
+						"condition": {
+							"above-adjust-toggle": [
+								true
+							]
+						},
+						"halfSpan": true,
+						"defaultValue": 5,
+						"min": 0,
+						"max": 50,
+						"step": 0.5
+					},
+					"above-text-shadow-offset-x": {
+						"type": "slider-input",
+						"label": "Shadow Offset Horizontal (px)",
+						"condition": {
+							"above-adjust-toggle": [
+								true
+							]
+						},
+						"halfSpan": true,
+						"defaultValue": 2,
+						"min": -25,
+						"max": 25,
+						"step": 0.5
+					},
+					"above-text-shadow-offset-y": {
+						"type": "slider-input",
+						"label": "Shadow Offset Vertical (px)",
+						"condition": {
+							"above-adjust-toggle": [
+								true
+							]
+						},
+						"halfSpan": true,
+						"defaultValue": 2,
+						"min": -25,
+						"max": 25,
+						"step": 0.5
+					},
+					"above-text-position-heading": {
+						"type": "heading",
+						"label": "Above Text Positioning",
+						"condition": {
+							"above-adjust-toggle": [
+								true
+							]
+						}
+					},
+					"above-text-adjust-toggle": {
+						"type": "toggle-input",
+						"label": "Adjust Position Settings?",
+						"condition": {
+							"above-adjust-toggle": [
+								true
+							]
+						},
+						"defaultValue": false
+					},
+					"above-text-adjust-y": {
+						"type": "slider-input",
+						"label": "Adjust Vertical Position",
+						"condition": {
+							"above-adjust-toggle": [
+								true
+							]
+						},
+						"halfSpan": true,
+						"defaultValue": 0,
+						"min": -100,
+						"max": 100,
+						"step": 1
+					},
+					"above-text-adjust-x": {
+						"type": "slider-input",
+						"label": "Adjust Horizontal Position",
+						"condition": {
+							"above-adjust-toggle": [
+								true
+							]
+						},
+						"halfSpan": true,
+						"defaultValue": 0,
+						"min": -300,
+						"max": 300,
+						"step": 1
+					},
+					"above-text-rotate": {
+						"type": "slider-input",
+						"label": "Text Rotation",
+						"condition": {
+							"above-adjust-toggle": [
+								true
+							]
+						},
+						"defaultValue": 0,
+						"min": -90,
+						"max": 90,
+						"step": 0.1
 					}
 				}
-			},
-			"text-below-bar-heading": {
-				"type": "heading",
-				"label": "Text Below Bar"
-			},
-			"text-below-desc": {
-				"type": "text-display",
-				"label": "When set to Milestone, the next milestone text is appended to the end of this text"
 			},
 			"text-below-section": {
 				"type": "section",
 				"label": "Text Below",
 				"settings": {
+					"text-below-desc": {
+						"type": "text-display",
+						"label": "When set to Milestone, the next milestone text is appended to the end of this text"
+					},
 					"text-below-toggle": {
 						"type": "toggle-input",
 						"label": "Show Text Below?",
 						"halfSpan": true,
 						"defaultValue": false
 					},
+					"below-adjust-toggle": {
+						"type": "toggle-input",
+						"label": "Adjust Below Text Separately?",
+						"condition": {},
+						"halfSpan": true,
+						"defaultValue": false
+					},
 					"text-below-bar": {
 						"type": "text-input",
 						"label": "Text below bar",
-						"halfSpan": true
+						"halfSpan": false
+					},
+					"below-text-appearance-heading": {
+						"type": "heading",
+						"label": "Below Text Apperance",
+						"condition": {
+							"below-adjust-toggle": [
+								true
+							]
+						}
+					},
+					"below-font-name": {
+						"type": "font-input",
+						"label": "Font",
+						"condition": {
+							"below-adjust-toggle": [
+								true
+							]
+						},
+						"halfSpan": true,
+						"defaultValue": "Inter",
+						"placeholder": "Font name"
+					},
+					"below-font-weight": {
+						"type": "dropdown-input",
+						"label": "Font Weight",
+						"condition": {
+							"below-adjust-toggle": [
+								true
+							]
+						},
+						"halfSpan": true,
+						"defaultValue": 400,
+						"options": [
+							{
+								"label": "Thin",
+								"value": 100
+							},
+							{
+								"label": "Extra-Light",
+								"value": 200
+							},
+							{
+								"label": "Light",
+								"value": 300
+							},
+							{
+								"label": "Normal",
+								"value": 400
+							},
+							{
+								"label": "Medium",
+								"value": 500
+							},
+							{
+								"label": "Semi-Bold",
+								"value": 600
+							},
+							{
+								"label": "Bold",
+								"value": 700
+							},
+							{
+								"label": "Extra-Bold",
+								"value": 800
+							},
+							{
+								"label": "Heavy",
+								"value": 900
+							}
+						]
+					},
+					"below-font-size": {
+						"type": "slider-input",
+						"label": "Font Size (px)",
+						"condition": {
+							"below-adjust-toggle": [
+								true
+							]
+						},
+						"defaultValue": 14,
+						"min": 1,
+						"max": 72,
+						"step": 1
+					},
+					"below-text-color": {
+						"type": "color-input",
+						"label": "Font Color",
+						"condition": {
+							"below-adjust-toggle": [
+								true
+							]
+						},
+						"halfSpan": true,
+						"defaultValue": "#fff"
+					},
+					"below-text-align": {
+						"type": "dropdown-input",
+						"label": "Alignment",
+						"condition": {
+							"below-adjust-toggle": [
+								true
+							]
+						},
+						"halfSpan": true,
+						"defaultValue": "center",
+						"options": [
+							{
+								"label": "Center",
+								"value": "center"
+							},
+							{
+								"label": "Left",
+								"value": "left"
+							},
+							{
+								"label": "Right",
+								"value": "right"
+							}
+						]
+					},
+					"below-text-background-color": {
+						"type": "color-input",
+						"label": "Text Background Color",
+						"condition": {
+							"below-adjust-toggle": [
+								true
+							]
+						},
+						"halfSpan": true,
+						"defaultValue": "#fff0"
+					},
+					"below-text-background-border-radius": {
+						"type": "slider-input",
+						"label": "Text Background Radius",
+						"condition": {
+							"below-adjust-toggle": [
+								true
+							]
+						},
+						"halfSpan": true,
+						"defaultValue": 0,
+						"min": 0,
+						"max": 50,
+						"step": 1
+					},
+					"below-text-shadow-heading": {
+						"type": "heading",
+						"label": "Below Text Shadow",
+						"condition": {
+							"below-adjust-toggle": [
+								true
+							]
+						}
+					},
+					"below-text-shadow-toggle": {
+						"type": "toggle-input",
+						"label": "Use Shadow?",
+						"condition": {
+							"below-adjust-toggle": [
+								true
+							]
+						},
+						"defaultValue": true
+					},
+					"below-text-shadow-color": {
+						"type": "color-input",
+						"label": "Shadow Color",
+						"condition": {
+							"below-adjust-toggle": [
+								true
+							]
+						},
+						"halfSpan": true,
+						"defaultValue": "#000"
+					},
+					"below-text-shadow-blur": {
+						"type": "slider-input",
+						"label": "Shadow Blur (px)",
+						"condition": {
+							"below-adjust-toggle": [
+								true
+							]
+						},
+						"halfSpan": true,
+						"defaultValue": 5,
+						"min": 0,
+						"max": 50,
+						"step": 0.5
+					},
+					"below-text-shadow-offset-x": {
+						"type": "slider-input",
+						"label": "Shadow Offset Horizontal (px)",
+						"condition": {
+							"below-adjust-toggle": [
+								true
+							]
+						},
+						"halfSpan": true,
+						"defaultValue": 2,
+						"min": -25,
+						"max": 25,
+						"step": 0.5
+					},
+					"below-text-shadow-offset-y": {
+						"type": "slider-input",
+						"label": "Shadow Offset Vertical (px)",
+						"condition": {
+							"below-adjust-toggle": [
+								true
+							]
+						},
+						"halfSpan": true,
+						"defaultValue": 2,
+						"min": -25,
+						"max": 25,
+						"step": 0.5
+					},
+					"below-text-position-heading": {
+						"type": "heading",
+						"label": "Below Text Positioning",
+						"condition": {
+							"below-adjust-toggle": [
+								true
+							]
+						}
+					},
+					"below-text-adjust-toggle": {
+						"type": "toggle-input",
+						"label": "Adjust Position Settings?",
+						"condition": {
+							"below-adjust-toggle": [
+								true
+							]
+						},
+						"defaultValue": false
+					},
+					"below-text-adjust-y": {
+						"type": "slider-input",
+						"label": "Adjust Vertical Position",
+						"condition": {
+							"below-adjust-toggle": [
+								true
+							]
+						},
+						"halfSpan": true,
+						"defaultValue": 0,
+						"min": -100,
+						"max": 100,
+						"step": 1
+					},
+					"below-text-adjust-x": {
+						"type": "slider-input",
+						"label": "Adjust Horizontal Position",
+						"condition": {
+							"below-adjust-toggle": [
+								true
+							]
+						},
+						"halfSpan": true,
+						"defaultValue": 0,
+						"min": -300,
+						"max": 300,
+						"step": 1
+					},
+					"below-text-rotate": {
+						"type": "slider-input",
+						"label": "Text Rotation",
+						"condition": {
+							"below-adjust-toggle": [
+								true
+							]
+						},
+						"defaultValue": 0,
+						"min": -90,
+						"max": 90,
+						"step": 0.1
 					}
 				}
 			}
