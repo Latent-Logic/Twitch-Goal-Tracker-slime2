@@ -290,18 +290,18 @@
 					},
 					"text-outline-color": {
 						"type": "color-input",
+						"label": "Outline Color",
 						"halfSpan": true,
-						"defaultValue": "#000",
-						"label": "Outline Color"
+						"defaultValue": "#000"
 					},
 					"text-outline": {
 						"type": "slider-input",
-						"min": 0,
-						"max": 10,
-						"step": 0.5,
+						"label": "Outline",
 						"halfSpan": true,
 						"defaultValue": 0,
-						"label": "Outline"
+						"min": 0,
+						"max": 10,
+						"step": 0.5
 					},
 					"text-background-color": {
 						"type": "color-input",
@@ -446,22 +446,16 @@
 				"type": "section",
 				"label": "Title Text",
 				"settings": {
-					"title-text-comment": {
-						"type": "text-display",
-						"label": "This is text that would be placed above the bar"
-					},
 					"title-toggle": {
 						"type": "toggle-input",
 						"label": "Show Title?",
 						"halfSpan": true,
 						"defaultValue": false
 					},
-					"title-adjust-toggle": {
-						"type": "toggle-input",
-						"label": "Adjust Title Text Separately?",
-						"condition": {},
-						"halfSpan": true,
-						"defaultValue": false
+					"title-text-comment": {
+						"type": "text-display",
+						"label": "This is text that would be placed above the bar",
+						"halfSpan": true
 					},
 					"bar-text-title": {
 						"type": "text-input",
@@ -470,12 +464,14 @@
 					},
 					"title-text-appearance-heading": {
 						"type": "heading",
-						"label": "Title Text Apperance",
-						"condition": {
-							"title-adjust-toggle": [
-								true
-							]
-						}
+						"label": "Title Text Apperance"
+					},
+					"title-adjust-toggle": {
+						"type": "toggle-input",
+						"label": "Adjust Title Text Separately?",
+						"condition": {},
+						"halfSpan": false,
+						"defaultValue": false
 					},
 					"title-font-name": {
 						"type": "font-input",
@@ -559,33 +555,33 @@
 								true
 							]
 						},
-						"halfSpan": true,
+						"halfSpan": false,
 						"defaultValue": "#fff"
 					},
-					"title-text-align": {
-						"type": "dropdown-input",
-						"label": "Alignment",
+					"title-text-outline-color": {
+						"type": "color-input",
+						"label": "Outline Color",
 						"condition": {
 							"title-adjust-toggle": [
 								true
 							]
 						},
 						"halfSpan": true,
-						"defaultValue": "center",
-						"options": [
-							{
-								"label": "Center",
-								"value": "center"
-							},
-							{
-								"label": "Left",
-								"value": "left"
-							},
-							{
-								"label": "Right",
-								"value": "right"
-							}
-						]
+						"defaultValue": "#000"
+					},
+					"title-text-outline": {
+						"type": "slider-input",
+						"label": "Outline",
+						"condition": {
+							"title-adjust-toggle": [
+								true
+							]
+						},
+						"halfSpan": true,
+						"defaultValue": 0,
+						"min": 0,
+						"max": 10,
+						"step": 0.5
 					},
 					"title-text-background-color": {
 						"type": "color-input",
@@ -686,28 +682,18 @@
 					},
 					"title-text-position-heading": {
 						"type": "heading",
-						"label": "Title Text Positioning",
-						"condition": {
-							"title-adjust-toggle": [
-								true
-							]
-						}
+						"label": "Title Text Positioning"
 					},
 					"title-text-adjust-toggle": {
 						"type": "toggle-input",
 						"label": "Adjust Position Settings?",
-						"condition": {
-							"title-adjust-toggle": [
-								true
-							]
-						},
 						"defaultValue": false
 					},
 					"title-text-adjust-y": {
 						"type": "slider-input",
 						"label": "Adjust Vertical Position",
 						"condition": {
-							"title-adjust-toggle": [
+							"title-text-adjust-toggle": [
 								true
 							]
 						},
@@ -721,7 +707,7 @@
 						"type": "slider-input",
 						"label": "Adjust Horizontal Position",
 						"condition": {
-							"title-adjust-toggle": [
+							"title-text-adjust-toggle": [
 								true
 							]
 						},
@@ -735,7 +721,7 @@
 						"type": "slider-input",
 						"label": "Text Rotation",
 						"condition": {
-							"title-adjust-toggle": [
+							"title-text-adjust-toggle": [
 								true
 							]
 						},
@@ -750,22 +736,16 @@
 				"type": "section",
 				"label": "Text Above",
 				"settings": {
-					"text-above-desc": {
-						"type": "text-display",
-						"label": "When set to Milestone, the next milestone text is appended to the end of this text"
-					},
 					"text-above-toggle": {
 						"type": "toggle-input",
 						"label": "Show Text Above?",
 						"halfSpan": true,
 						"defaultValue": false
 					},
-					"above-adjust-toggle": {
-						"type": "toggle-input",
-						"label": "Adjust Above Text Separately?",
-						"condition": {},
-						"halfSpan": true,
-						"defaultValue": false
+					"text-above-desc": {
+						"type": "text-display",
+						"label": "When set to Milestone, the next milestone text is appended to the end of this text",
+						"halfSpan": true
 					},
 					"text-above-bar": {
 						"type": "text-input",
@@ -774,12 +754,14 @@
 					},
 					"above-text-appearance-heading": {
 						"type": "heading",
-						"label": "Above Text Apperance",
-						"condition": {
-							"above-adjust-toggle": [
-								true
-							]
-						}
+						"label": "Above Text Apperance"
+					},
+					"above-adjust-toggle": {
+						"type": "toggle-input",
+						"label": "Adjust Above Text Separately?",
+						"condition": {},
+						"halfSpan": false,
+						"defaultValue": false
 					},
 					"above-font-name": {
 						"type": "font-input",
@@ -863,33 +845,33 @@
 								true
 							]
 						},
-						"halfSpan": true,
+						"halfSpan": false,
 						"defaultValue": "#fff"
 					},
-					"above-text-align": {
-						"type": "dropdown-input",
-						"label": "Alignment",
+					"above-text-outline-color": {
+						"type": "color-input",
+						"label": "Outline Color",
 						"condition": {
 							"above-adjust-toggle": [
 								true
 							]
 						},
 						"halfSpan": true,
-						"defaultValue": "center",
-						"options": [
-							{
-								"label": "Center",
-								"value": "center"
-							},
-							{
-								"label": "Left",
-								"value": "left"
-							},
-							{
-								"label": "Right",
-								"value": "right"
-							}
-						]
+						"defaultValue": "#000"
+					},
+					"above-text-outline": {
+						"type": "slider-input",
+						"label": "Outline",
+						"condition": {
+							"above-adjust-toggle": [
+								true
+							]
+						},
+						"halfSpan": true,
+						"defaultValue": 0,
+						"min": 0,
+						"max": 10,
+						"step": 0.5
 					},
 					"above-text-background-color": {
 						"type": "color-input",
@@ -990,28 +972,18 @@
 					},
 					"above-text-position-heading": {
 						"type": "heading",
-						"label": "Above Text Positioning",
-						"condition": {
-							"above-adjust-toggle": [
-								true
-							]
-						}
+						"label": "Above Text Positioning"
 					},
 					"above-text-adjust-toggle": {
 						"type": "toggle-input",
 						"label": "Adjust Position Settings?",
-						"condition": {
-							"above-adjust-toggle": [
-								true
-							]
-						},
 						"defaultValue": false
 					},
 					"above-text-adjust-y": {
 						"type": "slider-input",
 						"label": "Adjust Vertical Position",
 						"condition": {
-							"above-adjust-toggle": [
+							"above-text-adjust-toggle": [
 								true
 							]
 						},
@@ -1025,7 +997,7 @@
 						"type": "slider-input",
 						"label": "Adjust Horizontal Position",
 						"condition": {
-							"above-adjust-toggle": [
+							"above-text-adjust-toggle": [
 								true
 							]
 						},
@@ -1039,7 +1011,7 @@
 						"type": "slider-input",
 						"label": "Text Rotation",
 						"condition": {
-							"above-adjust-toggle": [
+							"above-text-adjust-toggle": [
 								true
 							]
 						},
@@ -1054,22 +1026,16 @@
 				"type": "section",
 				"label": "Text Below",
 				"settings": {
-					"text-below-desc": {
-						"type": "text-display",
-						"label": "When set to Milestone, the next milestone text is appended to the end of this text"
-					},
 					"text-below-toggle": {
 						"type": "toggle-input",
 						"label": "Show Text Below?",
 						"halfSpan": true,
 						"defaultValue": false
 					},
-					"below-adjust-toggle": {
-						"type": "toggle-input",
-						"label": "Adjust Below Text Separately?",
-						"condition": {},
-						"halfSpan": true,
-						"defaultValue": false
+					"text-below-desc": {
+						"type": "text-display",
+						"label": "When set to Milestone, the next milestone text is appended to the end of this text",
+						"halfSpan": true
 					},
 					"text-below-bar": {
 						"type": "text-input",
@@ -1078,12 +1044,14 @@
 					},
 					"below-text-appearance-heading": {
 						"type": "heading",
-						"label": "Below Text Apperance",
-						"condition": {
-							"below-adjust-toggle": [
-								true
-							]
-						}
+						"label": "Below Text Apperance"
+					},
+					"below-adjust-toggle": {
+						"type": "toggle-input",
+						"label": "Adjust Below Text Separately?",
+						"condition": {},
+						"halfSpan": false,
+						"defaultValue": false
 					},
 					"below-font-name": {
 						"type": "font-input",
@@ -1167,33 +1135,33 @@
 								true
 							]
 						},
-						"halfSpan": true,
+						"halfSpan": false,
 						"defaultValue": "#fff"
 					},
-					"below-text-align": {
-						"type": "dropdown-input",
-						"label": "Alignment",
+					"below-text-outline-color": {
+						"type": "color-input",
+						"label": "Outline Color",
 						"condition": {
 							"below-adjust-toggle": [
 								true
 							]
 						},
 						"halfSpan": true,
-						"defaultValue": "center",
-						"options": [
-							{
-								"label": "Center",
-								"value": "center"
-							},
-							{
-								"label": "Left",
-								"value": "left"
-							},
-							{
-								"label": "Right",
-								"value": "right"
-							}
-						]
+						"defaultValue": "#000"
+					},
+					"below-text-outline": {
+						"type": "slider-input",
+						"label": "Outline",
+						"condition": {
+							"below-adjust-toggle": [
+								true
+							]
+						},
+						"halfSpan": true,
+						"defaultValue": 0,
+						"min": 0,
+						"max": 10,
+						"step": 0.5
 					},
 					"below-text-background-color": {
 						"type": "color-input",
@@ -1294,28 +1262,18 @@
 					},
 					"below-text-position-heading": {
 						"type": "heading",
-						"label": "Below Text Positioning",
-						"condition": {
-							"below-adjust-toggle": [
-								true
-							]
-						}
+						"label": "Below Text Positioning"
 					},
 					"below-text-adjust-toggle": {
 						"type": "toggle-input",
 						"label": "Adjust Position Settings?",
-						"condition": {
-							"below-adjust-toggle": [
-								true
-							]
-						},
 						"defaultValue": false
 					},
 					"below-text-adjust-y": {
 						"type": "slider-input",
 						"label": "Adjust Vertical Position",
 						"condition": {
-							"below-adjust-toggle": [
+							"below-text-adjust-toggle": [
 								true
 							]
 						},
@@ -1329,7 +1287,7 @@
 						"type": "slider-input",
 						"label": "Adjust Horizontal Position",
 						"condition": {
-							"below-adjust-toggle": [
+							"below-text-adjust-toggle": [
 								true
 							]
 						},
@@ -1343,7 +1301,7 @@
 						"type": "slider-input",
 						"label": "Text Rotation",
 						"condition": {
-							"below-adjust-toggle": [
+							"below-text-adjust-toggle": [
 								true
 							]
 						},

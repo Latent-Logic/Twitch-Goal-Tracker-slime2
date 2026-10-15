@@ -115,7 +115,7 @@
 
 	font-weight: var(--font-weight);
 	font-size: var(--font-size);
-	color: var(--message-color);
+	color: var(--text-color);
 
 	position: absolute;
 	inset: 0;
@@ -135,6 +135,8 @@
     text-align: var(--text-align);
     text-shadow: var(--text-shadow-offset-x) var(--text-shadow-offset-y) var(--text-shadow-blur) var(--text-shadow-color);
     -webkit-text-stroke: var(--text-outline) var(--text-outline-color);
+    width: fit-content;
+    margin: auto;
 }
 
 .progress-container {
@@ -189,11 +191,11 @@
     background-color: var(--title-text-background-color);
     color: var(--title-text-color);
     border-radius: var(--title-text-background-border-radius);
-    font-weight: var(--title-font-weight);
-    font-size: var(--title-font-size);   
-    left: var(--title-text-left);
-    top: var(--title-text-top);
-    transform: rotate(var(--title-text-rotation));
+    font-family:
+		var(--custom-title-font-name), 'Inter', Nunito, Helvetica, Arial, sans-serif;
+
+	font-weight: var(--title-font-weight);
+	font-size: var(--title-font-size);
     text-shadow: var(--title-text-shadow-offset-x) var(--title-text-shadow-offset-y) var(--title-text-shadow-blur) var(--title-text-shadow-color);
     -webkit-text-stroke: var(--title-text-outline) var(--title-text-outline-color);
 }
@@ -202,12 +204,12 @@
     z-index: 4;
     background-color: var(--above-text-background-color);
     color: var(--above-text-color);
+    font-family:
+		var(--custom-above-font-name), 'Inter', Nunito, Helvetica, Arial, sans-serif;
+
     border-radius: var(--above-text-background-border-radius);
     font-weight: var(--above-font-weight);
     font-size: var(--above-font-size);   
-    left: var(--above-text-left);
-    top: var(--above-text-top);
-    transform: rotate(var(--above-text-rotation));
     text-shadow: var(--above-text-shadow-offset-x) var(--above-text-shadow-offset-y) var(--above-text-shadow-blur) var(--above-text-shadow-color);
     -webkit-text-stroke: var(--above-text-outline) var(--above-text-outline-color);
 }
@@ -217,13 +219,31 @@
     background-color: var(--below-text-background-color);
     color: var(--below-text-color);
     border-radius: var(--below-text-background-border-radius);
+    font-family:
+		var(--custom-below-font-name), 'Inter', Nunito, Helvetica, Arial, sans-serif;
+
     font-weight: var(--below-font-weight);
     font-size: var(--below-font-size);   
+    text-shadow: var(--below-text-shadow-offset-x) var(--below-text-shadow-offset-y) var(--below-text-shadow-blur) var(--below-text-shadow-color);
+    -webkit-text-stroke: var(--below-text-outline) var(--below-text-outline-color);
+}
+
+.text-title-settings-position {
+    left: var(--title-text-left);
+    top: var(--title-text-top);
+    transform: rotate(var(--title-text-rotation));
+}
+
+.text-above-settings-position {
+    left: var(--above-text-left);
+    top: var(--above-text-top);
+    transform: rotate(var(--above-text-rotation));
+}
+
+.text-below-settings-position {
     left: var(--below-text-left);
     top: var(--below-text-top);
     transform: rotate(var(--below-text-rotation));
-    text-shadow: var(--below-text-shadow-offset-x) var(--below-text-shadow-offset-y) var(--below-text-shadow-blur) var(--below-text-shadow-color);
-    -webkit-text-stroke: var(--below-text-outline) var(--below-text-outline-color);
 }
 
 

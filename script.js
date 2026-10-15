@@ -169,6 +169,11 @@ function widgetValuesListener(event) {
 	} else {
 		textTitle.classList.toggle('text-title-settings', false);
 	}
+	if (Widget.values.get('title-text-adjust-toggle')) {
+		textTitle.classList.toggle('text-title-settings-position', true);
+	} else {
+		textTitle.classList.toggle('text-title-settings-position', false);
+	}
 
 	// Above Text Separate settings
 	if (Widget.values.get('above-adjust-toggle')) {
@@ -176,12 +181,22 @@ function widgetValuesListener(event) {
 	} else {
 		textAbove.classList.toggle('text-above-settings', false);
 	}
+	if (Widget.values.get('above-text-adjust-toggle')) {
+		textAbove.classList.toggle('text-above-settings-position', true);
+	} else {
+		textAbove.classList.toggle('text-above-settings-position', false);
+	}
 
 	// Below Text Separate settings
 	if (Widget.values.get('below-adjust-toggle')) {
 		textBelow.classList.toggle('text-below-settings', true);
 	} else {
 		textBelow.classList.toggle('text-below-settings', false);
+	}
+	if (Widget.values.get('below-text-adjust-toggle')) {
+		textBelow.classList.toggle('text-below-settings-position', true);
+	} else {
+		textBelow.classList.toggle('text-below-settings-position', false);
 	}
 
 
