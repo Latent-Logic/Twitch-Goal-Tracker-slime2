@@ -8,6 +8,12 @@
 	--text-background-color: var(--custom-text-background-color, rgba(255,255,255,0));
 	--text-background-border-radius: var(--custom-text-background-border-radius, 5px);
 
+    --text-shadow-toggle: var(--custom-text-shadow-toggle, '');
+    --text-shadow-blur: var(--custom-text-shadow-blur, 0px);
+    --text-shadow-offset-x: var(--custom-text-shadow-offset-x, 0px);
+    --text-shadow-offset-y: var(--custom-text-shadow-offset-y, 0px);
+    --text-shadow-color: var(--custom-text-shadow-color, black);
+
     --text-rotation: var(--custom-text-rotate, 0deg);
 
 	--border-radius: var(--custom-border-radius, 5px);
@@ -44,6 +50,8 @@
     font-size: var(--font-size);   
     white-space: nowrap;
     pointer-events: none;
+    text-align: var(--text-align);
+    text-shadow: var(--text-shadow-offset-x) var(--text-shadow-offset-y) var(--text-shadow-blur) var(--text-shadow-color);
 }
 
 .progress-container {
@@ -84,6 +92,7 @@
     left: var(--text-left);
     top: var(--text-top);
     transform: rotate(var(--text-rotation));
+    text-shadow: var(--text-shadow-offset-x) var(--text-shadow-offset-y) var(--text-shadow-blur) var(--text-shadow-color);
 }
 
 #text-title {

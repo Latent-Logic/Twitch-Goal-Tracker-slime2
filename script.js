@@ -94,26 +94,56 @@ function widgetValuesListener(event) {
 
 	// text settings
 	[
-		// quotation marks around font name is necessary
-		// to handle font names that contain spaces
 		['font-name', `"${Widget.values.get('font-name') ?? 'Inter'}"`],
 		['text-color', Widget.values.get('text-color') ?? 'red'],
 		['font-size', `${Widget.values.get('font-size') ?? 14}px`],
 		['font-weight', Widget.values.get('font-weight') ?? 'normal'],
 		['text-align', Widget.values.get('text-align') ?? 'center'],
-		['text-left', `${Widget.values.get('text-adjust-x') ?? 0}px`],
-		['text-top', `${Widget.values.get('text-adjust-y') ?? 0}px`],
-		['text-rotate', `${Widget.values.get('text-rotate') ?? 0}deg`],
 		['text-background-color', Widget.values.get('text-background-color') ?? 'white'],
 		['text-background-border-radius', `${Widget.values.get('text-background-border-radius') ?? 5}px`],
 	].forEach(([cssVarName, value]) => {
 		setCustomCSS(cssVarName, value);
 	});
 
+
+	if (Widget.values.get('text-adjust-toggle')) {
+		[
+			['text-left', `${Widget.values.get('text-adjust-x') ?? 0}px`],
+			['text-top', `${Widget.values.get('text-adjust-y') ?? 0}px`],
+			['text-rotate', `${Widget.values.get('text-rotate') ?? 0}deg`],
+		].forEach(([cssVarName, value]) => {
+			setCustomCSS(cssVarName, value);
+		});
+	} else {
+		[
+			['text-left', `0px`],
+			['text-top', `0px`],
+			['text-rotate', `0deg`],
+		].forEach(([cssVarName, value]) => {
+			setCustomCSS(cssVarName, value);
+		});
+	}
+	
+
+
+	// shadow settings
+	[
+		['text-shadow-blur', `${Widget.values.get('text-shadow-blur') ?? 0}px`],
+		['text-shadow-offset-x', `${Widget.values.get('text-shadow-offset-x') ?? 0}px`],
+		['text-shadow-offset-y', `${Widget.values.get('text-shadow-offset-y') ?? 0}px`],
+	].forEach(([cssVarName, value]) => {
+		setCustomCSS(cssVarName, value);
+	});
+
+	if (Widget.values.get('text-shadow-toggle')) {
+		setCustomCSS('text-shadow-color', Widget.values.get('text-shadow-color') ?? 'black');
+	} else {
+		setCustomCSS('text-shadow-color', 'none');
+	}
+	
+
 	// bar settings
 	[
-		// quotation marks around font name is necessary
-		// to handle font names that contain spaces
 		['border-radius', `${Widget.values.get('border-radius') ?? 5}px`],
 		['bar-color', Widget.values.get('bar-color') ?? 'white'],
 		['bar-fill-color', Widget.values.get('bar-fill-color') ?? 'red'],
@@ -124,6 +154,8 @@ function widgetValuesListener(event) {
 	].forEach(([cssVarName, value]) => {
 		setCustomCSS(cssVarName, value);
 	});
+
+
 
 	// Element Display Settings
 	if (Widget.values.get('title-toggle')) {

@@ -43,7 +43,12 @@
 						"label": "This will try to establish a websocket connection when the page first loads, but shouldn't keep trying whenever you change you change values. If you aren't seeing the amount value update, Inspect page in your browser to see if there are connection issues"
 					}
 				}
-			},
+			}
+		}
+	},
+	"progress-bar-settings": {
+		"label": "Progress Bar",
+		"settings": {
 			"bar-settings": {
 				"type": "section",
 				"label": "Bar Settings",
@@ -130,19 +135,77 @@
 						"description": "List of milestones, formatted as [number, text].\nexample: 500, eat a pickle"
 					}
 				}
+			},
+			"bar-style": {
+				"type": "section",
+				"label": "Bar Appearance",
+				"settings": {
+					"bar-height": {
+						"type": "slider-input",
+						"label": "Bar Height",
+						"defaultValue": 25,
+						"min": 0,
+						"max": 1000,
+						"step": 0.5
+					},
+					"bar-width": {
+						"type": "slider-input",
+						"label": "Bar Width",
+						"defaultValue": 500,
+						"min": 0,
+						"max": 2000,
+						"step": 0.5
+					},
+					"bar-fill-color": {
+						"type": "color-input",
+						"label": "Bar Progress Colour",
+						"halfSpan": true,
+						"defaultValue": "#de4646"
+					},
+					"bar-color": {
+						"type": "color-input",
+						"label": "Bar Background Color",
+						"halfSpan": true,
+						"defaultValue": "#6262628a"
+					},
+					"border-radius": {
+						"type": "slider-input",
+						"label": "Bar Corner Radius",
+						"defaultValue": 0,
+						"min": 0,
+						"max": 50,
+						"step": 1
+					},
+					"bar-border-color": {
+						"type": "color-input",
+						"label": "Bar Border Color",
+						"halfSpan": true,
+						"defaultValue": "#fff"
+					},
+					"bar-border-size": {
+						"type": "slider-input",
+						"label": "Bar Border Thickness",
+						"halfSpan": true,
+						"defaultValue": 0,
+						"min": 0,
+						"max": 15,
+						"step": 1
+					}
+				}
 			}
 		}
 	},
 	"appearance-settings": {
-		"label": "Appearance",
+		"label": "Text Appearance",
 		"settings": {
 			"text-appearance": {
 				"type": "section",
-				"label": "Text Appearance",
+				"label": "Progress Text",
 				"settings": {
 					"font-name": {
 						"type": "font-input",
 						"label": "Font",
+						"halfSpan": true,
 						"defaultValue": "Inter",
 						"placeholder": "Font name"
 					},
@@ -194,7 +257,6 @@
 					"font-size": {
 						"type": "slider-input",
 						"label": "Font Size (px)",
-						"halfSpan": true,
 						"defaultValue": 14,
 						"min": 1,
 						"max": 72,
@@ -209,6 +271,7 @@
 					"text-align": {
 						"type": "dropdown-input",
 						"label": "Alignment",
+						"halfSpan": true,
 						"defaultValue": "center",
 						"options": [
 							{
@@ -239,79 +302,121 @@
 						"min": 0,
 						"max": 50,
 						"step": 1
+					}
+				}
+			},
+			"text-shadow": {
+				"type": "section",
+				"label": "Text Shadow",
+				"settings": {
+					"text-shadow-toggle": {
+						"type": "toggle-input",
+						"label": "Use Shadow?",
+						"condition": {},
+						"defaultValue": true
 					},
-					"text-adjust-x": {
+					"text-shadow-color": {
+						"type": "color-input",
+						"label": "Shadow Color",
+						"condition": {
+							"text-shadow-toggle": [
+								true
+							]
+						},
+						"halfSpan": true,
+						"defaultValue": "#000"
+					},
+					"text-shadow-blur": {
 						"type": "slider-input",
-						"label": "Adjust Horizontal Position",
+						"label": "Shadow Blur (px)",
+						"condition": {
+							"text-shadow-toggle": [
+								true
+							]
+						},
+						"halfSpan": true,
 						"defaultValue": 0,
-						"min": -300,
-						"max": 300,
+						"min": 0,
+						"max": 50,
 						"step": 1
+					},
+					"text-shadow-offset-x": {
+						"type": "slider-input",
+						"label": "Shadow Offset Horizontal (px)",
+						"condition": {
+							"text-shadow-toggle": [
+								true
+							]
+						},
+						"halfSpan": true,
+						"defaultValue": 0,
+						"min": -25,
+						"max": 25,
+						"step": 1
+					},
+					"text-shadow-offset-y": {
+						"type": "slider-input",
+						"label": "Shadow Offset Vertical (px)",
+						"condition": {
+							"text-shadow-toggle": [
+								true
+							]
+						},
+						"halfSpan": true,
+						"defaultValue": 0,
+						"min": -25,
+						"max": 25,
+						"step": 1
+					}
+				}
+			},
+			"text-position-section": {
+				"type": "section",
+				"label": "Text Positioning",
+				"settings": {
+					"text-adjust-toggle": {
+						"type": "toggle-input",
+						"label": "Adjust Position Settings?",
+						"defaultValue": false
 					},
 					"text-adjust-y": {
 						"type": "slider-input",
 						"label": "Adjust Vertical Position",
+						"condition": {
+							"text-adjust-toggle": [
+								true
+							]
+						},
 						"defaultValue": 0,
 						"min": -100,
 						"max": 100,
 						"step": 1
 					},
+					"text-adjust-x": {
+						"type": "slider-input",
+						"label": "Adjust Horizontal Position",
+						"condition": {
+							"text-adjust-toggle": [
+								true
+							]
+						},
+						"defaultValue": 0,
+						"min": -300,
+						"max": 300,
+						"step": 1
+					},
 					"text-rotate": {
 						"type": "slider-input",
 						"label": "Text Rotation",
+						"condition": {
+							"text-adjust-toggle": [
+								true
+							]
+						},
 						"defaultValue": 0,
 						"min": -90,
 						"max": 90,
 						"step": 0.1
-					}
-				}
-			},
-			"bar-style": {
-				"type": "section",
-				"label": "Bar Appearance",
-				"settings": {
-					"bar-height": {
-						"type": "number-input",
-						"label": "Bar Height",
-						"defaultValue": 25,
-						"min": 0
-					},
-					"bar-width": {
-						"type": "number-input",
-						"label": "Bar Width",
-						"defaultValue": 500,
-						"min": 0
-					},
-					"bar-border-size": {
-						"type": "slider-input",
-						"label": "Bar Border Thickness",
-						"defaultValue": 0,
-						"min": 0,
-						"max": 15,
-						"step": 1
-					},
-					"bar-border-color": {
-						"type": "color-input",
-						"label": "Bar Border Color",
-						"defaultValue": "#fff"
-					},
-					"bar-fill-color": {
-						"type": "color-input",
-						"label": "Bar Fill Colour",
-						"defaultValue": "#de4646"
-					},
-					"bar-color": {
-						"type": "color-input",
-						"label": "Bar Color Background",
-						"defaultValue": "#6262628a"
-					},
-					"border-radius": {
-						"type": "slider-input",
-						"label": "Border Radius",
-						"defaultValue": 0,
-						"min": 0,
-						"max": 50,
-						"step": 1
 					}
 				}
 			}
@@ -343,7 +448,7 @@
 				"settings": {
 					"text-above-desc": {
 						"type": "text-display",
-						"label": "When set to Milestone Bar, the previous milestone is appended to the end of this text."
+						"label": "When set to Milestone Bar, the previous milestone text is appended to the end of this text."
 					},
 					"text-above-toggle": {
 						"type": "toggle-input",
@@ -364,7 +469,7 @@
 				"settings": {
 					"text-below-desc": {
 						"type": "text-display",
-						"label": "When set to Milestone, the next milestone is appended to the end of this text"
+						"label": "When set to Milestone, the next milestone text is appended to the end of this text"
 					},
 					"text-below-toggle": {
 						"type": "toggle-input",
